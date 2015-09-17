@@ -1,11 +1,11 @@
 /* CSS Columns */
 /* you might want to combine this with Modernizr */
 
-  .csscolumns .npcolumns {
-    -moz-column-gap: 27px;
-    -webkit-column-gap: 27px;
-    column-gap: 27px;
-  }
+.csscolumns .npcolumns {
+  -moz-column-gap: 27px;
+  -webkit-column-gap: 27px;
+  column-gap: 27px;
+}
 
 @media (min-width:800px) and (min-device-width:750px) {
 
