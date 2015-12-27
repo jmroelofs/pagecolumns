@@ -1,7 +1,7 @@
 /*
 
   Script:   pageColumns
-  Version:  1.1, jQuery plugin version
+  Version:  1.2, jQuery plugin version
   Authors:  Jan Martin Roelofs (www.roelofs-coaching.nl)
   Desc:     Divides columns into pages for better readability
             Can also be used with only one column
@@ -21,13 +21,12 @@
                         defNumberOfColumns: 2,
                         // overridable default required window width (do nothing in smaller windows)
                         minWindowWidth:     604,
-                        // overridable default column height (in ratio to window height)
-                        maxColumnHeight:    0.82,
+                        // overridable default column height
+                        columnHeight:    Math.round($(window).height() * 0.82),
                         // overridable default column gap (if not set beforehand through css)
                         defColumnGap:       0.038
                       }, options),
-        result      = $(),
-        columnHeight= Math.round($(window).height() * settings.maxColumnHeight);
+        result      = $();
 
     // sanity check
     if ($(window).width() >= settings.minWindowWidth){
