@@ -22,7 +22,7 @@
                         // overridable default required window width (do nothing in smaller windows)
                         minWindowWidth:     604,
                         // overridable default column height
-                        columnHeight:    Math.round($(window).height() * 0.82),
+                        columnHeight:       Math.round($(window).height() * 0.82),
                         // overridable default column gap (if not set beforehand through css)
                         defColumnGap:       0.038
                       }, options),
