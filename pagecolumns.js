@@ -2,6 +2,7 @@
 
   Script:   pageColumns
   Version:  1.2, jQuery plugin version
+  Needs:    jQuery >= 1.9
   Authors:  Jan Martin Roelofs (www.roelofs-coaching.nl)
   Desc:     Divides columns into pages for better readability
             Can also be used with only one column
