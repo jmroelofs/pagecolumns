@@ -51,7 +51,7 @@
           '-column-fill' : 'auto',
           '-column-width': columnWidth  + 'px',
            'column-gap'  : columnGap    + 'px',
-                 'height': columnHeight + 'px'
+                 'height': settings.columnHeight + 'px'
         });
 
         // skip the first elements
