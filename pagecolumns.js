@@ -18,17 +18,17 @@
   $.fn.pageColumns = function(options){
     'use strict';
 
-    var settings    = $.extend({
-                        // overridable default number of columns (if not set beforehand through css)
-                        defNumberOfColumns: 2,
-                        // overridable default required window width (do nothing in smaller windows)
-                        minWindowWidth:     604,
-                        // overridable default column height
-                        columnHeight:       Math.round($(window).height() * 0.82),
-                        // overridable default column gap (if not set beforehand through css)
-                        defColumnGap:       0.038
-                      }, options),
-        result      = $();
+    var settings = $.extend({
+                     // overridable default number of columns (if not set beforehand through css)
+                     defNumberOfColumns: 2,
+                     // overridable default required window width (do nothing in smaller windows)
+                     minWindowWidth:     604,
+                     // overridable default column height
+                     columnHeight:       Math.round($(window).height() * 0.82),
+                     // overridable default column gap (if not set beforehand through css)
+                     defColumnGap:       0.038
+                   }, options),
+        result   = $();
 
     // sanity check
     if ($(window).width() >= settings.minWindowWidth){
@@ -47,11 +47,11 @@
             columnWidth     = Math.floor((this.offsetWidth - columnGap - 1) / numberOfColumns);
 
         $(this).css({
-          '-column-count': 'auto',
-          '-column-fill' : 'auto',
-          '-column-width': columnWidth  + 'px',
-           'column-gap'  : columnGap    + 'px',
-                 'height': settings.columnHeight + 'px'
+          'column-count': 'auto',
+          'column-fill' : 'auto',
+          'column-width': columnWidth  + 'px',
+          'column-gap'  : columnGap    + 'px',
+          'height'      : settings.columnHeight + 'px'
         });
 
         // skip the first elements
