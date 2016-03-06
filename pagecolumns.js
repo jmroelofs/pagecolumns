@@ -49,9 +49,9 @@
         $(this).css({
           'column-count': 'auto',
           'column-fill' : 'auto',
-          'column-width': columnWidth  + 'px',
-          'column-gap'  : columnGap    + 'px',
-          'height'      : settings.columnHeight + 'px'
+          'column-width': columnWidth,
+          'column-gap'  : columnGap,
+          'height'      : settings.columnHeight
         });
 
         // skip the first elements
