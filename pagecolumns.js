@@ -44,7 +44,7 @@
                                 Math.round(this.offsetWidth * settings.defColumnGap),
             numberOfColumns = parseInt(oldCssValues['column-count']) ||
                                 settings.defNumberOfColumns,
-            columnWidth     = Math.floor((this.offsetWidth - columnGap - 1) / numberOfColumns);
+            columnWidth     = Math.floor((this.offsetWidth - (columnGap * (numberOfColumns - 1)) - 1) / numberOfColumns);
 
         $(this).css({
           'column-count': 'auto',
