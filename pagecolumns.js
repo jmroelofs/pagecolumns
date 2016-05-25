@@ -1,7 +1,7 @@
 /*
 
   Script:   pageColumns
-  Version:  1.4, jQuery plugin version
+  Version:  1.5, jQuery plugin version
   Needs:    jQuery >= 1.9
             Browser that supports css columns (use modernizr to check for that: https://modernizr.com/)
   Authors:  Jan Martin Roelofs (www.roelofs-coaching.nl)
@@ -24,7 +24,7 @@
                      // overridable default required window width (do nothing in smaller windows)
                      minWindowWidth:     604,
                      // overridable default column height
-                     minWindowHeight:    604,
+                     minWindowHeight:    450,
                      // overridable default column height
                      columnHeight:       Math.round($(window).height() * 0.82),
                      // overridable default column gap (if not set beforehand through css)
