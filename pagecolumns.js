@@ -1,7 +1,7 @@
 /*
 
   Script:   pageColumns
-  Version:  1.5, jQuery plugin version
+  Version:  1.6, jQuery plugin version
   Needs:    jQuery >= 1.9
             Browser that supports css columns (use modernizr to check for that: https://modernizr.com/)
   Authors:  Jan Martin Roelofs (www.roelofs-coaching.nl)
@@ -18,18 +18,7 @@
   $.fn.pageColumns = function(options){
     'use strict';
 
-    var settings = $.extend({
-                     // overridable default number of columns (if not set beforehand through css)
-                     defNumberOfColumns: 1,
-                     // overridable default required window width (do nothing in smaller windows)
-                     minWindowWidth:     604,
-                     // overridable default column height
-                     minWindowHeight:    450,
-                     // overridable default column height
-                     columnHeight:       Math.round($(window).height() * 0.82),
-                     // overridable default column gap (if not set beforehand through css)
-                     defColumnGap:       0.038
-                   }, options),
+    var settings = $.extend( {}, $.fn.pageColumns.defaults, options ),
         result   = $();
 
     // sanity check
@@ -38,15 +27,15 @@
         // merging one by one ensures the right order of the returned object
         $.merge(result, $(this));
 
-        var oldColumnCssText= this.style.cssText,
+        var oldColumnCssText = this.style.cssText,
             // jQuery >= 1.8 will take care of the prefixes
             // jQuery >= 1.9 is needed for array style properties
-            oldCssValues    = $(this).css(['column-gap', 'column-count']),
-            columnGap       = parseFloat(oldCssValues['column-gap']) ||
+            oldCssValues     = $(this).css(['column-gap', 'column-count']),
+            columnGap        = parseFloat(oldCssValues['column-gap']) ||
                                 Math.round(this.offsetWidth * settings.defColumnGap),
-            numberOfColumns = parseInt(oldCssValues['column-count']) ||
+            numberOfColumns  = parseInt(oldCssValues['column-count']) ||
                                 settings.defNumberOfColumns,
-            columnWidth     = Math.floor((this.offsetWidth - (columnGap * (numberOfColumns - 1)) - 1) / numberOfColumns);
+            columnWidth      = Math.floor((this.offsetWidth - (columnGap * (numberOfColumns - 1)) - 1) / numberOfColumns);
 
         $(this).css({
           'column-count': 'auto',
@@ -57,14 +46,14 @@
         });
 
         // skip the first elements
-        for (var i= numberOfColumns; this.children[i]; i++) {
+        for (var i = numberOfColumns; this.children[i]; i++) {
 
           // if column is too far to the right, create a new container
           if (this.children[i].getBoundingClientRect().left > this.getBoundingClientRect().right) {
-            var newColumn= this.cloneNode(false);
-            newColumn.style.cssText= oldColumnCssText;
+            var newColumn = this.cloneNode(false);
+            newColumn.style.cssText = oldColumnCssText;
             // move content
-            for (var j= this.children.length; j > i; j--)
+            for (var j = this.children.length; j > i; j--)
               newColumn.appendChild(this.children[i]);
             // put the new container after the old and give it the same treatment
             $.merge(result, $(newColumn).insertAfter(this).pageColumns());
@@ -73,10 +62,23 @@
         }
 
         // restore old styles
-        this.style.cssText= oldColumnCssText;
+        this.style.cssText = oldColumnCssText;
       });
     }
     return result;
+  };
+
+$.fn.pageColumns.defaults = {
+     // overridable default number of columns (if not set beforehand through css)
+     defNumberOfColumns: 1,
+     // overridable default required window width (do nothing in smaller windows)
+     minWindowWidth:     604,
+     // overridable default column height
+     minWindowHeight:    450,
+     // overridable default column height
+     columnHeight:       Math.round($(window).height() * 0.82),
+     // overridable default column gap (if not set beforehand through css)
+     defColumnGap:       0.038
   };
 
 })(jQuery);
