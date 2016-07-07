@@ -69,16 +69,16 @@
   };
 
 $.fn.pageColumns.defaults = {
-     // overridable default number of columns (if not set beforehand through css)
-     defNumberOfColumns: 1,
-     // overridable default required window width (do nothing in smaller windows)
-     minWindowWidth:     604,
-     // overridable default column height
-     minWindowHeight:    450,
-     // overridable default column height
-     columnHeight:       Math.round($(window).height() * 0.82),
-     // overridable default column gap (if not set beforehand through css)
-     defColumnGap:       0.038
+    // overridable default number of columns (if not set beforehand through css)
+    defNumberOfColumns: 1,
+    // overridable default required window width (do nothing in smaller windows)
+    minWindowWidth:     604,
+    // overridable default column height
+    minWindowHeight:    450,
+    // overridable default column height
+    columnHeight:       Math.round($(window).height() * 0.82),
+    // overridable default column gap (if not set beforehand through css)
+    defColumnGap:       0.038
   };
 
 })(jQuery);
