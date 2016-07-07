@@ -68,7 +68,7 @@
     return result;
   };
 
-$.fn.pageColumns.defaults = {
+  $.fn.pageColumns.defaults = {
     // overridable default number of columns (if not set beforehand through css)
     defNumberOfColumns: 1,
     // overridable default required window width (do nothing in smaller windows)
