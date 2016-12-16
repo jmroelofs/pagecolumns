@@ -32,9 +32,9 @@
             // jQuery >= 1.9 is needed for array style properties
             oldCssValues     = $(this).css(['column-gap', 'column-count']),
             columnGap        = parseFloat(oldCssValues['column-gap']) ||
-                                Math.round(this.offsetWidth * settings.defColumnGap),
+                                 Math.round(this.offsetWidth * settings.defColumnGap),
             numberOfColumns  = parseInt(oldCssValues['column-count']) ||
-                                settings.defNumberOfColumns,
+                                 settings.defNumberOfColumns,
             columnWidth      = Math.floor((this.offsetWidth - (columnGap * (numberOfColumns - 1)) - 1) / numberOfColumns);
 
         $(this).css({
