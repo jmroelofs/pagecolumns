@@ -1,7 +1,7 @@
 /*
 
   Script:   pageColumns
-  Version:  1.6, jQuery plugin version
+  Version:  1.7, jQuery plugin version
   Needs:    jQuery >= 1.9
             Browser that supports css columns (use modernizr to check for that: https://modernizr.com/)
   Authors:  Jan Martin Roelofs (www.roelofs-coaching.nl)
@@ -18,14 +18,11 @@
   $.fn.pageColumns = function(options){
     'use strict';
 
-    var settings = $.extend( {}, $.fn.pageColumns.defaults, options ),
-        result   = $();
+    var settings = $.extend( {}, $.fn.pageColumns.defaults, options );
 
     // sanity check
     if (($(window).width() >= settings.minWindowWidth) && ($(window).height() >= settings.minWindowHeight)){
-      this.each(function(){
-        // merging one by one ensures the right order of the returned object
-        $.merge(result, $(this));
+      return this.map(function(){
 
         var oldColumnCssText = this.style.cssText,
             // jQuery >= 1.8 will take care of the prefixes
@@ -50,22 +47,22 @@
 
           // if column is too far to the right, create a new container
           if (this.children[i].getBoundingClientRect().left > this.getBoundingClientRect().right) {
+            this.style.cssText = oldColumnCssText;
             var newColumn = this.cloneNode(false);
-            newColumn.style.cssText = oldColumnCssText;
             // move content
             for (var j = this.children.length; j > i; j--)
               newColumn.appendChild(this.children[i]);
             // put the new container after the old and give it the same treatment
-            $.merge(result, $(newColumn).insertAfter(this).pageColumns());
+            return [this].concat($(newColumn).insertAfter(this).pageColumns(options).get());
           }
 
         }
 
         // restore old styles
         this.style.cssText = oldColumnCssText;
+        return this;
       });
     }
-    return result;
   };
 
   $.fn.pageColumns.defaults = {
