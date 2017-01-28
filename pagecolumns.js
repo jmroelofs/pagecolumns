@@ -1,7 +1,7 @@
 /*
 
   Script:   pageColumns
-  Version:  1.7, jQuery plugin version
+  Version:  1.8, jQuery plugin version
   Needs:    jQuery >= 1.9
             Browser that supports css columns (use modernizr to check for that: https://modernizr.com/)
   Authors:  Jan Martin Roelofs (www.roelofs-coaching.nl)
@@ -32,7 +32,8 @@
                                  Math.round(this.offsetWidth * settings.defColumnGap),
             numberOfColumns  = parseInt(oldCssValues['column-count']) ||
                                  settings.defNumberOfColumns,
-            columnWidth      = Math.floor((this.offsetWidth - (columnGap * (numberOfColumns - 1)) - 1) / numberOfColumns);
+            columnWidth      = Math.floor((this.offsetWidth - (columnGap * (numberOfColumns - 1)) - 1) / numberOfColumns),
+            returnArray      = [this];
 
         $(this).css({
           'column-count': 'auto',
@@ -47,20 +48,21 @@
 
           // if column is too far to the right, create a new container
           if (this.children[i].getBoundingClientRect().left > this.getBoundingClientRect().right) {
-            this.style.cssText = oldColumnCssText;
-            var newColumn = this.cloneNode(false);
+            var page = this.cloneNode(false);
+            page.style.cssText = oldColumnCssText;
             // move content
-            for (var j = this.children.length; j > i; j--)
-              newColumn.appendChild(this.children[i]);
-            // put the new container after the old and give it the same treatment
-            return [this].concat($(newColumn).insertAfter(this).pageColumns(options).get());
+            for (; i > 0; i--)
+              page.appendChild(this.children[0]);
+            i = numberOfColumns - 1;
+            // put the new container before the original and continue
+            returnArray.unshift(this.parentNode.insertBefore(page, this));
           }
 
         }
 
         // restore old styles
         this.style.cssText = oldColumnCssText;
-        return this;
+        return returnArray;
       });
     }
   };
