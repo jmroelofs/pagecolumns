@@ -2,25 +2,25 @@
 /* you might want to combine this with Modernizr */
 
 .csscolumns .npcolumns {
-  -moz-column-gap: 27px;
-  -webkit-column-gap: 27px;
-  column-gap: 27px;
+    -moz-column-gap: 27px;
+    -webkit-column-gap: 27px;
+    column-gap: 27px;
 }
 
 @media (min-width:801px) and (min-device-width:750px) {
 
-  .csscolumns .npcolumns {
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-count: 2;
-  }
+    .csscolumns .npcolumns {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
 
-  .csscolumns .npcolumns + .npcolumns {
-    margin-top: 40px;
-  }
+    .csscolumns .npcolumns + .npcolumns {
+        margin-top: 40px;
+    }
 
-  .cscolumns .npcolumns.withdivider {
-    background: linear-gradient(to right, black, black) center top / 1px 100% repeat-y;
-  }
+    .cscolumns .npcolumns.withdivider {
+        background: linear-gradient(to right, black, black) center top / 1px 100% repeat-y;
+    }
 
 }
