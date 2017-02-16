@@ -27,13 +27,13 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
                 var oldColumnCssText = this.style.cssText,
                     // jQuery >= 1.8 will take care of the prefixes
                     // jQuery >= 1.9 is needed for array style properties
-                    oldCssValues    = $(this).css(['column-gap', 'column-count']),
-                    columnGap       = parseFloat(oldCssValues['column-gap']) ||
-                                        Math.round(this.offsetWidth * settings.defColumnGap),
-                    numberOfColumns = parseInt(oldCssValues['column-count']) ||
-                                        settings.defNumberOfColumns,
-                    columnWidth     = Math.floor((this.offsetWidth - (columnGap * (numberOfColumns - 1)) - 1) / numberOfColumns),
-                    returnArray     = [this];
+                    oldCssValues     = $(this).css(['column-gap', 'column-count']),
+                    columnGap        = parseFloat(oldCssValues['column-gap']) ||
+                                         Math.round(this.offsetWidth * settings.defColumnGap),
+                    numberOfColumns  = parseInt(oldCssValues['column-count']) ||
+                                         settings.defNumberOfColumns,
+                    columnWidth      = Math.floor((this.offsetWidth - (columnGap * (numberOfColumns - 1)) - 1) / numberOfColumns),
+                    returnArray      = [this];
 
                 $(this).css({
                     'column-count': 'auto',
