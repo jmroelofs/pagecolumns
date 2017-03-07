@@ -44,17 +44,16 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
                 });
 
                 // skip the first elements
-                for (var i = numberOfColumns; this.children[i]; i++) {
-
+                for (var rightBoundary = this.getBoundingClientRect().right, i = numberOfColumns; i < this.children.length; i++) {
                     // if column is too far to the right, create a new container
-                    if (this.children[i].getBoundingClientRect().left > this.getBoundingClientRect().right) {
+                    if (this.children[i].getBoundingClientRect().left > rightBoundary) {
                         var page = this.cloneNode(false);
                         // move content
                         for (page.style.cssText = oldColumnCssText; i > 0; i--)
-                            page.appendChild(this.children[0]);
-                        i = numberOfColumns - 1;
+                            page.appendChild(this.firstElementChild);
                         // put the new container before the original and continue
                         returnArray.unshift(this.parentNode.insertBefore(page, this));
+                        i = numberOfColumns - 1;
                     }
 
                 }
