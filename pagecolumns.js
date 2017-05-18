@@ -61,7 +61,7 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
                 return returnArray;
             });
         }
-    };
+    }
 
     $.fn.pageColumns.defaults = {
         // overridable default number of columns (if not set beforehand through css)
@@ -74,6 +74,6 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
         columnHeight:       Math.round($(window).height() * 0.82),
         // overridable default column gap (if not set beforehand through css)
         defColumnGap:       0.038
-    };
+    }
 
 })(jQuery);
