@@ -71,7 +71,7 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
         // overridable default column height
         minWindowHeight:    450,
         // overridable default column height
-        columnHeight:       Math.round($(window).height() * 0.82),
+        columnHeight:       '82vh',
         // overridable default column gap (if not set beforehand through css)
         defColumnGap:       0.038
     }
