@@ -14,9 +14,9 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
 */
 
 (function($){
+    'use strict';
 
     $.fn.pageColumns = function(options){
-        'use strict';
 
         var settings = $.extend( {}, $.fn.pageColumns.defaults, options );
 
@@ -61,7 +61,7 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
                 return returnArray;
             });
         }
-    }
+    };
 
     $.fn.pageColumns.defaults = {
         // overridable default number of columns (if not set beforehand through css)
@@ -74,6 +74,6 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
         columnHeight:       '82vh',
         // overridable default column gap (if not set beforehand through css)
         defColumnGap:       0.038
-    }
+    };
 
 })(jQuery);
