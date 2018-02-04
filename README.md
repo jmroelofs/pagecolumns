@@ -5,8 +5,8 @@
 - Browser that supports css columns (use modernizr to check for that: https://modernizr.com/)
 
 ### Description
-Divides columns into pages for better readability.
-Can also be used with only one column.
+Divides columns into pages for better readability.\
+Can also be used with only one column.\
 You can see it in action at: https://www.roelofs-coaching.nl/klimwoordenboek/.
 
 ### Usage
