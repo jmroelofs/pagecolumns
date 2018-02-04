@@ -9,7 +9,6 @@ Divides columns into pages for better readability
 Can also be used with only one column
 
 ### Usage
-#### Example
     $(function(){
     if (Modernizr.csscolumns)
         $('.npcolumns').pageColumns({defNumberOfColumns: 2, columnHeight: Math.round($(window).height() * 0.82)});
