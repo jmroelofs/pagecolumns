@@ -53,7 +53,7 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
                         range.setEndBefore(this.children[i]);
                         page.style.cssText = oldColumnCssText;
                         // move content
-                        range.surroundContents(page);
+                        page.appendChild(range.extractContents());
                         // put the new container before the original and continue
                         returnArray.unshift(this.parentNode.insertBefore(page, this));
                         i = numberOfColumns - 1;
