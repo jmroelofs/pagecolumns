@@ -47,10 +47,13 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
                 for (var rightBoundary = this.getBoundingClientRect().right, i = numberOfColumns; i < this.children.length; i++) {
                     // if column is too far to the right, create a new container
                     if (this.children[i].getBoundingClientRect().left > rightBoundary) {
-                        var page = this.cloneNode(false);
+                        var page  = this.cloneNode(false),
+                            range = document.createRange();
+                        range.setStartBefore(this.firstElementChild);
+                        range.setEndBefore(this.children[i]);
+                        page.style.cssText = oldColumnCssText;
                         // move content
-                        for (page.style.cssText = oldColumnCssText; i > 0; i--)
-                            page.appendChild(this.firstElementChild);
+                        range.surroundContents(page);
                         // put the new container before the original and continue
                         returnArray.unshift(this.parentNode.insertBefore(page, this));
                         i = numberOfColumns - 1;
