@@ -1,7 +1,7 @@
 /*
 
 Script:         pageColumns
-Version:        1.8, jQuery plugin version
+Version:        1.9, jQuery plugin version
 Needs:          jQuery >= 1.9
                 Browser that supports css columns (use modernizr to check for that: https://modernizr.com/)
 Authors:        Jan Martin Roelofs (www.roelofs-coaching.nl)
