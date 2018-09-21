@@ -18,7 +18,7 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
 
     $.fn.pageColumns = function(options){
 
-        var settings = $.extend( {}, $.fn.pageColumns.defaults, options );
+        var settings = $.extend({}, $.fn.pageColumns.defaults, options);
 
         // sanity check
         if (($(window).width() >= settings.minWindowWidth) && ($(window).height() >= settings.minWindowHeight)){
@@ -28,10 +28,8 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
                     // jQuery >= 1.8 will take care of the prefixes
                     // jQuery >= 1.9 is needed for array style properties
                     oldCssValues     = $(this).css(['column-gap', 'column-count']),
-                    columnGap        = parseFloat(oldCssValues['column-gap']) ||
-                                         Math.round(this.offsetWidth * settings.defColumnGap),
-                    numberOfColumns  = parseInt(oldCssValues['column-count']) ||
-                                         settings.defNumberOfColumns,
+                    columnGap        = parseFloat(oldCssValues['column-gap']) || Math.round(this.offsetWidth * settings.defColumnGap),
+                    numberOfColumns  = parseInt(oldCssValues['column-count']) || settings.defNumberOfColumns,
                     columnWidth      = Math.floor((this.offsetWidth - (columnGap * (numberOfColumns - 1)) - 1) / numberOfColumns),
                     returnArray      = [this];
 
