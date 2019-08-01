@@ -69,7 +69,7 @@ Licence:        This work is licensed under the Creative Commons Attribution 4.0
         defNumberOfColumns: 1,
         // overridable default required window width (do nothing in smaller windows)
         minWindowWidth:     604,
-        // overridable default column height
+        // overridable default required window height (do nothing in smaller windows)
         minWindowHeight:    450,
         // overridable default column height
         columnHeight:       '82vh',
